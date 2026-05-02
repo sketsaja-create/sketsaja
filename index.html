@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>sketsaja</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --blue:#2f3cff;
+  --orange:#f6a96b;
+  --text:#111;
+  --muted:#8a8a8a;
+  --bg:#ffffff;
+}
+
+body{
+  margin:0;
+  font-family:'Montserrat', sans-serif;
+  background:var(--bg);
+  color:var(--text);
+}
+
+/* PAGE */
+.page{
+  display:none;
+  padding:80px 20px;
+}
+.page.active{display:block;}
+
+/* HERO */
+.hero{
+  text-align:center;
+  margin-top:80px;
+}
+.hero img{
+  width:150px;
+}
+.hero p{
+  margin-top:20px;
+  font-size:14px;
+  letter-spacing:1px;
+  text-align:center;
+
+  background: linear-gradient(90deg, var(--blue), var(--orange));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* MENU */
+.menu{
+  margin-top:90px;
+}
+.menu button{
+  display:block;
+  margin:18px auto;
+  background:none;
+  border:none;
+  font-size:14px;
+  letter-spacing:2px;
+  cursor:pointer;
+  position:relative;
+}
+.menu button::after{
+  content:'';
+  display:block;
+  width:0;
+  height:1px;
+  background:var(--blue);
+  margin:auto;
+  transition:0.3s;
+}
+.menu button:hover::after{
+  width:50%;
+}
+
+/* TITLE */
+h2{
+  text-align:center;
+  font-weight:400;
+  letter-spacing:1px;
+  margin-bottom:50px;
+}
+
+/* BACK */
+.back{
+  width:100%;
+  max-width:900px;
+  margin:0 auto 40px auto;
+  font-size:13px;
+  color:var(--muted);
+  cursor:pointer;
+  text-align:left;
+}
+.back span::after{
+  content:'';
+  display:block;
+  width:0;
+  height:1px;
+  background:var(--blue);
+  transition:0.3s;
+}
+.back:hover span::after{
+  width:100%;
+}
+
+/* GRID */
+.grid{
+  max-width:900px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+.grid img{
+  width:100%;
+  aspect-ratio:1/1;
+  object-fit:cover;
+}
+
+/* PRODUCT */
+.product{
+  max-width:900px;
+  margin:auto;
+}
+.card{
+  margin-bottom:60px;
+}
+.card img{
+  width:100%;
+  margin-bottom:15px;
+}
+.card h3{
+  font-weight:400;
+  margin:0;
+}
+.price{
+  color:var(--blue);
+  font-size:14px;
+  margin-top:5px;
+}
+
+/* INFO */
+.info{
+  max-width:500px;
+  margin:auto;
+  text-align:center;
+  line-height:1.7;
+  color:#444;
+}
+.info a{
+  color:var(--blue);
+  text-decoration:none;
+}
+
+/* GLOBAL PARAGRAPH CENTER */
+p{
+  text-align:center;
+}
+
+/* SOCIAL */
+.social{
+  text-align:center;
+  margin-top:100px;
+}
+.social a{
+  margin:0 10px;
+  color:var(--muted);
+  text-decoration:none;
+}
+.social a:hover{
+  color:var(--blue);
+}
+</style>
+</head>
+
+<body>
+
+<!-- HOME -->
+<div id="home" class="page active">
+  <div class="hero">
+    <img src="logo.png">
+    <p>have a portrait is our right</p>
+  </div>
+
+  <div class="menu">
+    <button onclick="go('katalog')">katalog</button>
+    <button onclick="go('portfolio')">portfolio</button>
+    <button onclick="go('product')">our product</button>
+    <button onclick="go('info')">info</button>
+  </div>
+
+  <div class="social">
+    <a href="https://instagram.com/sketsaja_">instagram</a>
+    <a href="#">tiktok</a>
+  </div>
+</div>
+
+<!-- KATALOG -->
+<div id="katalog" class="page">
+  <div class="back" onclick="go('home')"><span>← back</span></div>
+  <h2>katalog</h2>
+
+  <div class="grid">
+    <img src="https://via.placeholder.com/300">
+    <img src="https://via.placeholder.com/301">
+    <img src="https://via.placeholder.com/302">
+    <img src="https://via.placeholder.com/303">
+    <img src="https://via.placeholder.com/304">
+    <img src="https://via.placeholder.com/305">
+    <img src="https://via.placeholder.com/306">
+    <img src="https://via.placeholder.com/307">
+    <img src="https://via.placeholder.com/308">
+  </div>
+</div>
+
+<!-- PORTFOLIO -->
+<div id="portfolio" class="page">
+  <div class="back" onclick="go('home')"><span>← back</span></div>
+  <h2>portfolio</h2>
+
+  <div class="grid">
+    <img src="https://via.placeholder.com/400">
+    <img src="https://via.placeholder.com/401">
+    <img src="https://via.placeholder.com/402">
+    <img src="https://via.placeholder.com/403">
+    <img src="https://via.placeholder.com/404">
+    <img src="https://via.placeholder.com/405">
+    <img src="https://via.placeholder.com/406">
+    <img src="https://via.placeholder.com/407">
+    <img src="https://via.placeholder.com/408">
+  </div>
+</div>
+
+<!-- PRODUCT -->
+<div id="product" class="page">
+  <div class="back" onclick="go('home')"><span>← back</span></div>
+  <h2>our product</h2>
+
+  <div class="product">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/800x600">
+      <h3>black & white portrait</h3>
+      <div class="price">a3 200k | a4 150k</div>
+      <div>+ face 50k / 25k</div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/800x600">
+      <h3>coloured portrait</h3>
+      <div class="price">a3 300k | a4 200k</div>
+      <div>+ face 50k / 25k</div>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/800x600">
+      <h3>gancipot</h3>
+      <div class="price">35k / face</div>
+    </div>
+
+  </div>
+</div>
+
+<!-- INFO -->
+<div id="info" class="page">
+  <div class="back" onclick="go('home')"><span>← back</span></div>
+  <h2>info</h2>
+
+  <div class="info">
+    pilih produk → hubungi whatsapp → kirim foto → dp 20% → proses 2–3 hari → pelunasan → dikirim<br><br>
+
+    seabank<br>
+    9013 5942 3234<br>
+    andromeda haidar barra<br><br>
+
+    <a href="https://wa.me/6285786046916">whatsapp</a>
+  </div>
+</div>
+
+<script>
+function go(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+</script>
+
+</body>
+</html>
