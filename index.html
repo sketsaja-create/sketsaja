@@ -54,6 +54,10 @@ body{
 }
 
 .menu{
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+
   margin-top:90px;
 }
 
@@ -140,11 +144,19 @@ h2{
 }
 
 .product-list{
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+
   max-width:700px;
   margin:auto;
 }
 
 .product-item{
+  width:100%;
+  text-align:center;
+
   background:linear-gradient(145deg,rgba(47,60,255,0.03),rgba(246,169,107,0.05));
   border:1px solid rgba(47,60,255,0.08);
   border-radius:24px;
@@ -200,7 +212,7 @@ h2{
   margin-top:30px;
 }
 
-.howtoorder{
+.info{
   background:linear-gradient(145deg,rgba(47,60,255,0.04),rgba(246,169,107,0.06));
   border:1px solid rgba(47,60,255,0.08);
   border-radius:30px;
@@ -214,7 +226,7 @@ h2{
   color:#444;
 }
 
-.howtoorder a{
+.info a{
   color:var(--blue);
   text-decoration:none;
 }
@@ -246,10 +258,10 @@ h2{
   </div>
 
   <div class="menu">
-    <button onclick="go('catalogue')">catalogue</button>
-    <button onclick="go('portfolio')">portfolio</button>
-    <button onclick="go('our product')">our product</button>
-    <button onclick="go('how to order')">info</button>
+    <button onclick="go('katalog')">catalogue</button>
+    <button onclick="go('portfolio')">portofolio</button>
+    <button onclick="go('product')">our product</button>
+    <button onclick="go('info')">how to order</button>
   </div>
 
   <div class="social">
@@ -259,13 +271,13 @@ h2{
 
 </div>
 
-<div id="catalogue" class="page">
+<div id="katalog" class="page">
 
 <div class="back" onclick="go('home')">← back</div>
-<h2>catalogue</h2>
+<h2 style="text-align:center;">catalogue</h2>
 
 <div class="slider">
-<div class="slides" id="catalogueSlides">
+<div class="slides" id="katalogSlides">
 <img src="https://via.placeholder.com/900x900?text=katalog+1">
 <img src="https://via.placeholder.com/900x900?text=katalog+2">
 <img src="https://via.placeholder.com/900x900?text=katalog+3">
@@ -273,8 +285,8 @@ h2{
 </div>
 
 <div class="slider-buttons">
-<button onclick="slide('catalogueSlides',-1)">‹</button>
-<button onclick="slide('catalogueSlides',1)">›</button>
+<button onclick="slide('katalogSlides',-1)">‹</button>
+<button onclick="slide('katalogSlides',1)">›</button>
 </div>
 
 </div>
@@ -282,7 +294,7 @@ h2{
 <div id="portfolio" class="page">
 
 <div class="back" onclick="go('home')">← back</div>
-<h2>portfolio</h2>
+<h2 style="text-align:center;">portofolio</h2>
 
 <div class="slider">
 <div class="slides" id="portfolioSlides">
@@ -308,12 +320,12 @@ h2{
 
 <div class="product-item" onclick="go('bw')">
 <h3>black & white portrait</h3>
-<p>A3 & A4</p>
+<p>a3 & a4</p>
 </div>
 
 <div class="product-item" onclick="go('colour')">
 <h3>coloured portrait</h3>
-<p>A3 & A4</p>
+<p>a3 & a4</p>
 </div>
 
 <div class="product-item" onclick="go('gancipot')">
@@ -410,17 +422,17 @@ additional face +25k
 </div>
 </div>
 
-<div id="how to order" class="page">
+<div id="info" class="page">
 <div class="back" onclick="go('home')">← back</div>
-<h2>how to order</h2>
+<h2 style="text-align:center;">how to order</h2>
 
-<div class="how to order">
+<div class="info">
 
 <div style="font-size:24px;font-weight:500;margin-bottom:30px;background:linear-gradient(90deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;">
 order flow
 </div>
 
-<div style="display:grid;gap:16px;text-align:center;max-width:420px;margin:auto;">
+<div style="display:grid;gap:16px;text-align:left;max-width:420px;margin:auto;">
 
 <div style="background:white;padding:18px 20px;border-radius:20px;border:1px solid rgba(47,60,255,0.08);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
 <b style="color:var(--blue);">01</b><br><br>
@@ -509,7 +521,7 @@ function slide(id,direction){
 }
 
 setInterval(()=>{
-  slide('catalogueSlides',1);
+  slide('katalogSlides',1);
 },3500);
 
 setInterval(()=>{
@@ -517,11 +529,11 @@ setInterval(()=>{
 },4000);
 
 setInterval(()=>{
-  slide('black&whiteslides',1);
+  slide('bwSlides',1);
 },3500);
 
 setInterval(()=>{
-  slide('colouredSlides',1);
+  slide('colourSlides',1);
 },3500);
 
 setInterval(()=>{
