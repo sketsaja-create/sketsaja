@@ -13,46 +13,50 @@
   --orange:#f6a96b;
   --text:#111;
   --muted:#8a8a8a;
-  --bg:#ffffff;
+}
+
+*{
+  box-sizing:border-box;
 }
 
 body{
   margin:0;
-  font-family:'Montserrat', sans-serif;
-  background:var(--bg);
+  font-family:'Montserrat',sans-serif;
+  background:#fff;
   color:var(--text);
 }
 
-/* PAGE */
 .page{
   display:none;
   padding:80px 20px;
 }
-.page.active{display:block;}
 
-/* HERO */
+.page.active{
+  display:block;
+}
+
 .hero{
   text-align:center;
-  margin-top:80px;
+  margin-top:70px;
 }
+
 .hero img{
   width:150px;
 }
+
 .hero p{
   margin-top:20px;
   font-size:14px;
   letter-spacing:1px;
-  text-align:center;
-
-  background: linear-gradient(90deg, var(--blue), var(--orange));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  background:linear-gradient(90deg,var(--blue),var(--orange));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
 }
 
-/* MENU */
 .menu{
   margin-top:90px;
 }
+
 .menu button{
   display:block;
   margin:18px auto;
@@ -63,113 +67,169 @@ body{
   cursor:pointer;
   position:relative;
 }
+
 .menu button::after{
   content:'';
   display:block;
   width:0;
   height:1px;
   background:var(--blue);
+  transition:.3s;
   margin:auto;
-  transition:0.3s;
 }
+
 .menu button:hover::after{
   width:50%;
 }
 
-/* TITLE */
 h2{
+  font-size:28px;
+  background:linear-gradient(90deg,var(--blue),var(--orange));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
   text-align:center;
   font-weight:400;
-  letter-spacing:1px;
   margin-bottom:50px;
+  letter-spacing:1px;
 }
 
-/* BACK */
 .back{
-  width:100%;
   max-width:900px;
-  margin:0 auto 40px auto;
-  font-size:13px;
+  margin:auto auto 40px auto;
   color:var(--muted);
+  font-size:13px;
   cursor:pointer;
-  text-align:left;
-}
-.back span::after{
-  content:'';
-  display:block;
-  width:0;
-  height:1px;
-  background:var(--blue);
-  transition:0.3s;
-}
-.back:hover span::after{
-  width:100%;
 }
 
-/* GRID */
-.grid{
+.slider{
+  border-radius:28px;
+  box-shadow:0 12px 40px rgba(0,0,0,0.05);
+
   max-width:900px;
   margin:auto;
-  display:grid;
-  grid-template-columns:repeat(3,1fr);
-  gap:12px;
+  overflow:hidden;
+  position:relative;
 }
-.grid img{
+
+.slides{
+  display:flex;
+  transition:transform .6s cubic-bezier(.77,0,.18,1);
+  will-change:transform;
+}
+
+.slides img{
   width:100%;
-  aspect-ratio:1/1;
+  flex-shrink:0;
   object-fit:cover;
+  aspect-ratio:1/1;
 }
 
-/* PRODUCT */
-.product{
-  max-width:900px;
+.slider-buttons{
+  text-align:center;
+  margin-top:15px;
+}
+
+.slider-buttons button{
+  border:none;
+  background:none;
+  cursor:pointer;
+  font-size:20px;
+  margin:0 10px;
+  color:var(--muted);
+}
+
+.product-list{
+  max-width:700px;
   margin:auto;
 }
-.card{
-  margin-bottom:60px;
-}
-.card img{
-  width:100%;
-  margin-bottom:15px;
-}
-.card h3{
-  font-weight:400;
-  margin:0;
-}
-.price{
-  color:var(--blue);
-  font-size:14px;
-  margin-top:5px;
+
+.product-item{
+  background:linear-gradient(145deg,rgba(47,60,255,0.03),rgba(246,169,107,0.05));
+  border:1px solid rgba(47,60,255,0.08);
+  border-radius:24px;
+  padding:28px;
+  margin-bottom:18px;
+  backdrop-filter:blur(10px);
+  box-shadow:0 10px 30px rgba(0,0,0,0.03);
+
+  border-bottom:1px solid #eee;
+  padding:25px 0;
+  cursor:pointer;
+  transition:.3s;
 }
 
-/* INFO */
+.product-item:hover{
+  padding-left:10px;
+}
+
+.product-item h3{
+  font-size:20px;
+  letter-spacing:.5px;
+
+  margin:0;
+  font-weight:400;
+}
+
+.product-item p{
+  font-size:13px;
+  letter-spacing:1px;
+
+  color:var(--muted);
+}
+
+.detail{
+  background:linear-gradient(145deg,rgba(47,60,255,0.03),rgba(246,169,107,0.04));
+  border:1px solid rgba(47,60,255,0.08);
+  border-radius:32px;
+  padding:30px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.04);
+
+  max-width:900px;
+  margin:auto;
+  text-align:center;
+}
+
+.detail h3{
+  font-size:26px;
+  background:linear-gradient(90deg,var(--blue),var(--orange));
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+
+  font-weight:400;
+  margin-top:30px;
+}
+
 .info{
+  background:linear-gradient(145deg,rgba(47,60,255,0.04),rgba(246,169,107,0.06));
+  border:1px solid rgba(47,60,255,0.08);
+  border-radius:30px;
+  padding:40px 30px;
+  box-shadow:0 10px 40px rgba(0,0,0,0.04);
+
   max-width:500px;
   margin:auto;
   text-align:center;
   line-height:1.7;
   color:#444;
 }
+
 .info a{
   color:var(--blue);
   text-decoration:none;
 }
 
-/* GLOBAL PARAGRAPH CENTER */
-p{
-  text-align:center;
-}
-
-/* SOCIAL */
 .social{
   text-align:center;
   margin-top:100px;
 }
+
 .social a{
   margin:0 10px;
   color:var(--muted);
   text-decoration:none;
 }
+
 .social a:hover{
   color:var(--blue);
 }
@@ -178,10 +238,10 @@ p{
 
 <body>
 
-<!-- HOME -->
 <div id="home" class="page active">
+
   <div class="hero">
-    <img src="logo.png">
+    <img src="https://via.placeholder.com/300x300?text=logo">
     <p>have a portrait is our right</p>
   </div>
 
@@ -196,95 +256,278 @@ p{
     <a href="https://instagram.com/sketsaja_">instagram</a>
     <a href="#">tiktok</a>
   </div>
+
 </div>
 
-<!-- KATALOG -->
 <div id="katalog" class="page">
-  <div class="back" onclick="go('home')"><span>← back</span></div>
-  <h2>katalog</h2>
 
-  <div class="grid">
-    <img src="https://via.placeholder.com/300">
-    <img src="https://via.placeholder.com/301">
-    <img src="https://via.placeholder.com/302">
-    <img src="https://via.placeholder.com/303">
-    <img src="https://via.placeholder.com/304">
-    <img src="https://via.placeholder.com/305">
-    <img src="https://via.placeholder.com/306">
-    <img src="https://via.placeholder.com/307">
-    <img src="https://via.placeholder.com/308">
-  </div>
+<div class="back" onclick="go('home')">← back</div>
+<h2>katalog</h2>
+
+<div class="slider">
+<div class="slides" id="katalogSlides">
+<img src="https://via.placeholder.com/900x900?text=katalog+1">
+<img src="https://via.placeholder.com/900x900?text=katalog+2">
+<img src="https://via.placeholder.com/900x900?text=katalog+3">
+</div>
 </div>
 
-<!-- PORTFOLIO -->
+<div class="slider-buttons">
+<button onclick="slide('katalogSlides',-1)">‹</button>
+<button onclick="slide('katalogSlides',1)">›</button>
+</div>
+
+</div>
+
 <div id="portfolio" class="page">
-  <div class="back" onclick="go('home')"><span>← back</span></div>
-  <h2>portfolio</h2>
 
-  <div class="grid">
-    <img src="https://via.placeholder.com/400">
-    <img src="https://via.placeholder.com/401">
-    <img src="https://via.placeholder.com/402">
-    <img src="https://via.placeholder.com/403">
-    <img src="https://via.placeholder.com/404">
-    <img src="https://via.placeholder.com/405">
-    <img src="https://via.placeholder.com/406">
-    <img src="https://via.placeholder.com/407">
-    <img src="https://via.placeholder.com/408">
-  </div>
+<div class="back" onclick="go('home')">← back</div>
+<h2>portfolio</h2>
+
+<div class="slider">
+<div class="slides" id="portfolioSlides">
+<img src="https://via.placeholder.com/900x900?text=portfolio+1">
+<img src="https://via.placeholder.com/900x900?text=portfolio+2">
+<img src="https://via.placeholder.com/900x900?text=portfolio+3">
+</div>
 </div>
 
-<!-- PRODUCT -->
+<div class="slider-buttons">
+<button onclick="slide('portfolioSlides',-1)">‹</button>
+<button onclick="slide('portfolioSlides',1)">›</button>
+</div>
+
+</div>
+
 <div id="product" class="page">
-  <div class="back" onclick="go('home')"><span>← back</span></div>
-  <h2>our product</h2>
 
-  <div class="product">
+<div class="back" onclick="go('home')">← back</div>
+<h2>our product</h2>
 
-    <div class="card">
-      <img src="https://via.placeholder.com/800x600">
-      <h3>black & white portrait</h3>
-      <div class="price">a3 200k | a4 150k</div>
-      <div>+ face 50k / 25k</div>
-    </div>
+<div class="product-list">
 
-    <div class="card">
-      <img src="https://via.placeholder.com/800x600">
-      <h3>coloured portrait</h3>
-      <div class="price">a3 300k | a4 200k</div>
-      <div>+ face 50k / 25k</div>
-    </div>
-
-    <div class="card">
-      <img src="https://via.placeholder.com/800x600">
-      <h3>gancipot</h3>
-      <div class="price">35k / face</div>
-    </div>
-
-  </div>
+<div class="product-item" onclick="go('bw')">
+<h3>black & white portrait</h3>
+<p>a3 & a4</p>
 </div>
 
-<!-- INFO -->
+<div class="product-item" onclick="go('colour')">
+<h3>coloured portrait</h3>
+<p>a3 & a4</p>
+</div>
+
+<div class="product-item" onclick="go('gancipot')">
+<h3>gancipot</h3>
+<p>keychain portrait</p>
+</div>
+
+</div>
+</div>
+
+<div id="bw" class="page">
+<div class="back" onclick="go('product')">← back</div>
+<div class="detail">
+
+<div class="slider">
+<div class="slides" id="bwSlides">
+<img src="https://via.placeholder.com/900x900?text=bw+1">
+<img src="https://via.placeholder.com/900x900?text=bw+2">
+</div>
+</div>
+
+<div class="slider-buttons">
+<button onclick="slide('bwSlides',-1)">‹</button>
+<button onclick="slide('bwSlides',1)">›</button>
+</div>
+
+<h3>black & white portrait</h3>
+<div style="margin-top:25px;display:grid;gap:14px;">
+<div style="padding:18px;border-radius:18px;background:white;border:1px solid rgba(47,60,255,0.08);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
+<b style="font-size:24px;font-weight:500;background:linear-gradient(90deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;">a3 — 200k</b><br>
+additional face +50k
+</div>
+<div style="padding:18px;border-radius:18px;background:white;border:1px solid rgba(246,169,107,0.1);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
+<b style="font-size:24px;font-weight:500;background:linear-gradient(90deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;">a4 — 150k</b><br>
+additional face +25k
+</div>
+</div>
+
+</div>
+</div>
+
+<div id="colour" class="page">
+<div class="back" onclick="go('product')">← back</div>
+<div class="detail">
+
+<div class="slider">
+<div class="slides" id="colourSlides">
+<img src="https://via.placeholder.com/900x900?text=colour+1">
+<img src="https://via.placeholder.com/900x900?text=colour+2">
+</div>
+</div>
+
+<div class="slider-buttons">
+<button onclick="slide('colourSlides',-1)">‹</button>
+<button onclick="slide('colourSlides',1)">›</button>
+</div>
+
+<h3>coloured portrait</h3>
+<div style="margin-top:25px;display:grid;gap:14px;">
+<div style="padding:18px;border-radius:18px;background:white;border:1px solid rgba(47,60,255,0.08);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
+<b style="font-size:24px;font-weight:500;background:linear-gradient(90deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;">a3 — 300k</b><br>
+additional face +50k
+</div>
+<div style="padding:18px;border-radius:18px;background:white;border:1px solid rgba(246,169,107,0.1);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
+<b style="font-size:24px;font-weight:500;background:linear-gradient(90deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;">a4 — 200k</b><br>
+additional face +25k
+</div>
+</div>
+
+</div>
+</div>
+
+<div id="gancipot" class="page">
+<div class="back" onclick="go('product')">← back</div>
+<div class="detail">
+
+<div class="slider">
+<div class="slides" id="gancipotSlides">
+<img src="https://via.placeholder.com/900x900?text=gancipot+1">
+<img src="https://via.placeholder.com/900x900?text=gancipot+2">
+</div>
+</div>
+
+<div class="slider-buttons">
+<button onclick="slide('gancipotSlides',-1)">‹</button>
+<button onclick="slide('gancipotSlides',1)">›</button>
+</div>
+
+<h3>gancipot</h3>
+<div style="margin-top:25px;padding:18px;border-radius:18px;background:white;border:1px solid rgba(246,169,107,0.1);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
+<b style="font-size:24px;font-weight:500;background:linear-gradient(90deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;">35k / face</b>
+</div>
+
+</div>
+</div>
+
 <div id="info" class="page">
-  <div class="back" onclick="go('home')"><span>← back</span></div>
-  <h2>info</h2>
+<div class="back" onclick="go('home')">← back</div>
+<h2>info</h2>
 
-  <div class="info">
-    pilih produk → hubungi whatsapp → kirim foto → dp 20% → proses 2–3 hari → pelunasan → dikirim<br><br>
+<div class="info">
 
-    seabank<br>
-    9013 5942 3234<br>
-    andromeda haidar barra<br><br>
+<div style="font-size:24px;font-weight:500;margin-bottom:30px;background:linear-gradient(90deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;">
+order flow
+</div>
 
-    <a href="https://wa.me/6285786046916">whatsapp</a>
-  </div>
+<div style="display:grid;gap:16px;text-align:left;max-width:420px;margin:auto;">
+
+<div style="background:white;padding:18px 20px;border-radius:20px;border:1px solid rgba(47,60,255,0.08);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
+<b style="color:var(--blue);">01</b><br><br>
+choose your product from our catalogue.
+</div>
+
+<div style="background:white;padding:18px 20px;border-radius:20px;border:1px solid rgba(246,169,107,0.1);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
+<b style="color:var(--orange);">02</b><br><br>
+contact us via whatsapp and send your photo reference.
+</div>
+
+<div style="background:white;padding:18px 20px;border-radius:20px;border:1px solid rgba(47,60,255,0.08);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
+<b style="color:var(--blue);">03</b><br><br>
+make 20% down payment before production process.
+</div>
+
+<div style="background:white;padding:18px 20px;border-radius:20px;border:1px solid rgba(246,169,107,0.1);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
+<b style="color:var(--orange);">04</b><br><br>
+production takes around 2–3 days.
+</div>
+
+<div style="background:white;padding:18px 20px;border-radius:20px;border:1px solid rgba(47,60,255,0.08);box-shadow:0 5px 20px rgba(0,0,0,0.03);">
+<b style="color:var(--blue);">05</b><br><br>
+after finished, complete the payment and your order will be shipped.
+</div>
+
+</div>
+
+<div style="margin-top:40px;padding:24px;border-radius:24px;background:linear-gradient(145deg,rgba(47,60,255,0.04),rgba(246,169,107,0.06));border:1px solid rgba(47,60,255,0.08);">
+
+<div style="font-size:20px;font-weight:500;margin-bottom:15px;background:linear-gradient(90deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+payment
+</div>
+
+seabank<br>
+9013 5942 3234<br>
+andromeda haidar barra
+
+</div>
+
+<div style="margin-top:35px;">
+<a href="https://wa.me/6285786046916" style="display:inline-block;padding:14px 34px;border-radius:50px;background:linear-gradient(90deg,var(--blue),var(--orange));color:white;text-decoration:none;box-shadow:0 10px 30px rgba(47,60,255,0.2);letter-spacing:1px;">
+contact whatsapp
+</a>
+</div>
+
+</div>
 </div>
 
 <script>
 function go(id){
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.querySelectorAll('.page').forEach(p=>{
+    p.classList.remove('active');
+  });
+
   document.getElementById(id).classList.add('active');
+
+  window.scrollTo({
+    top:0,
+    behavior:'smooth'
+  });
 }
+
+const indexes = {};
+
+function slide(id,direction){
+
+  const slides=document.getElementById(id);
+  const total=slides.children.length;
+
+  if(indexes[id]===undefined){
+    indexes[id]=0;
+  }
+
+  indexes[id]+=direction;
+
+  if(indexes[id]<0){
+    indexes[id]=total-1;
+  }
+
+  if(indexes[id]>=total){
+    indexes[id]=0;
+  }
+
+  slides.style.transform=`translateX(-${indexes[id]*100}%)`;
+}
+
+setInterval(()=>{
+  slide('katalogSlides',1);
+},3500);
+
+setInterval(()=>{
+  slide('portfolioSlides',1);
+},4000);
+
+setInterval(()=>{
+  slide('bwSlides',1);
+},3500);
+
+setInterval(()=>{
+  slide('colourSlides',1);
+},3500);
+
+setInterval(()=>{
+  slide('gancipotSlides',1);
+},3500);
+
 </script>
 
 </body>
