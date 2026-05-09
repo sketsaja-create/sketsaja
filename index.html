@@ -200,7 +200,7 @@ h2{
   margin-top:30px;
 }
 
-.info{
+.howtoorder{
   background:linear-gradient(145deg,rgba(47,60,255,0.04),rgba(246,169,107,0.06));
   border:1px solid rgba(47,60,255,0.08);
   border-radius:30px;
@@ -214,7 +214,7 @@ h2{
   color:#444;
 }
 
-.info a{
+.howtoorder a{
   color:var(--blue);
   text-decoration:none;
 }
@@ -246,10 +246,10 @@ h2{
   </div>
 
   <div class="menu">
-    <button onclick="go('katalog')">katalog</button>
+    <button onclick="go('catalogue')">catalogue</button>
     <button onclick="go('portfolio')">portfolio</button>
-    <button onclick="go('product')">our product</button>
-    <button onclick="go('info')">info</button>
+    <button onclick="go('our product')">our product</button>
+    <button onclick="go('how to order')">info</button>
   </div>
 
   <div class="social">
@@ -259,13 +259,13 @@ h2{
 
 </div>
 
-<div id="katalog" class="page">
+<div id="catalogue" class="page">
 
 <div class="back" onclick="go('home')">← back</div>
-<h2>katalog</h2>
+<h2>catalogue</h2>
 
 <div class="slider">
-<div class="slides" id="katalogSlides">
+<div class="slides" id="catalogueSlides">
 <img src="https://via.placeholder.com/900x900?text=katalog+1">
 <img src="https://via.placeholder.com/900x900?text=katalog+2">
 <img src="https://via.placeholder.com/900x900?text=katalog+3">
@@ -273,8 +273,8 @@ h2{
 </div>
 
 <div class="slider-buttons">
-<button onclick="slide('katalogSlides',-1)">‹</button>
-<button onclick="slide('katalogSlides',1)">›</button>
+<button onclick="slide('catalogueSlides',-1)">‹</button>
+<button onclick="slide('catalogueSlides',1)">›</button>
 </div>
 
 </div>
@@ -308,12 +308,12 @@ h2{
 
 <div class="product-item" onclick="go('bw')">
 <h3>black & white portrait</h3>
-<p>a3 & a4</p>
+<p>A3 & A4</p>
 </div>
 
 <div class="product-item" onclick="go('colour')">
 <h3>coloured portrait</h3>
-<p>a3 & a4</p>
+<p>A3 & A4</p>
 </div>
 
 <div class="product-item" onclick="go('gancipot')">
@@ -410,11 +410,11 @@ additional face +25k
 </div>
 </div>
 
-<div id="info" class="page">
+<div id="how to order" class="page">
 <div class="back" onclick="go('home')">← back</div>
-<h2>info</h2>
+<h2>how to order</h2>
 
-<div class="info">
+<div class="how to order">
 
 <div style="font-size:24px;font-weight:500;margin-bottom:30px;background:linear-gradient(90deg,var(--blue),var(--orange));-webkit-background-clip:text;-webkit-text-fill-color:transparent;letter-spacing:1px;">
 order flow
@@ -509,7 +509,7 @@ function slide(id,direction){
 }
 
 setInterval(()=>{
-  slide('katalogSlides',1);
+  slide('catalogueSlides',1);
 },3500);
 
 setInterval(()=>{
@@ -517,11 +517,11 @@ setInterval(()=>{
 },4000);
 
 setInterval(()=>{
-  slide('bwSlides',1);
+  slide('black&whiteslides',1);
 },3500);
 
 setInterval(()=>{
-  slide('colourSlides',1);
+  slide('colouredSlides',1);
 },3500);
 
 setInterval(()=>{
